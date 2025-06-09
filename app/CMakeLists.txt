@@ -1,1 +1,1 @@
-add_subdirectory(0-test-setup)
+add_subdirectory(setup-test)

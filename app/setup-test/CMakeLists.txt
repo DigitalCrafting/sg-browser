@@ -1,9 +1,9 @@
 set(EXE_SOURCES "main.cc")
 set(EXE_INCLUDES "../.." "${CMAKE_BINARY_DIR}/configured/include")
 
-add_executable(0_${EXECUTABLE_NAME} ${EXE_SOURCES})
-target_include_directories(0_${EXECUTABLE_NAME} PUBLIC ${EXE_INCLUDES})
-target_link_libraries(0_${EXECUTABLE_NAME} PRIVATE
+add_executable(0_SetupTest ${EXE_SOURCES})
+target_include_directories(0_SetupTest PUBLIC ${EXE_INCLUDES})
+target_link_libraries(0_SetupTest PRIVATE
         fmt::fmt
         spdlog::spdlog
         cxxopts::cxxopts
@@ -13,7 +13,7 @@ target_link_libraries(0_${EXECUTABLE_NAME} PRIVATE
 
 if (ENABLE_WARNINGS)
     target_set_warnings(
-            0_${EXECUTABLE_NAME}
+            0_SetupTest
             ON
             OFF
     )

@@ -19,14 +19,9 @@ set(CMAKE_CXX_EXTENSIONS        OFF)
 set(LIBRARY_NAME Library)
 set(EXECUTABLE_NAME Executable)
 
-set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
-include(AddGitSubmodule)
-include(FetchContent)
-include(Docs)
+add_subdirectory(config)
 
-if(ENABLE_WARNINGS)
-    include(Warnings)
-endif()
+set(FETCHCONTENT_BASE_DIR "${CMAKE_SOURCE_DIR}/dependencies/external")
 
 FetchContent_Declare(
         fmt
@@ -75,8 +70,7 @@ if(ENABLE_TESTING)
     list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
 endif()
 
-add_subdirectory(configured)
-add_subdirectory(external)
+add_subdirectory(dependencies)
 add_subdirectory(src)
 add_subdirectory(app)
 
