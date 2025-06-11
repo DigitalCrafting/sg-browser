@@ -1,7 +1,8 @@
 #ifndef SG_BROWSER_ENTRYPOINT_H
 #define SG_BROWSER_ENTRYPOINT_H
 
-#include "../core/Application.h"
+#include "Application.h"
+#include "KeyCodes.h"
 
 extern SG::Application* SG::CreateApplication();
 
