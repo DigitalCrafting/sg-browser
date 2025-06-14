@@ -17,17 +17,17 @@ struct FirstLayer {
     void onUpdate() {
         std::cout << "First layer onUpdate!\n";
     }
-
-    static void FirstLayer_onAttach(void* ctx) {
-        static_cast<FirstLayer*>(ctx)->onAttach();
+    
+    void onEvent(SG::Event& event) {
+        std::cout << "First layer onEvent!\n";
     }
 
     SG::LayerInterface getHandle() {
         return SG::LayerInterface{
-                .onAttach = FirstLayer::FirstLayer_onAttach,
-                .onDetach = nullptr,
-                .onUpdate = nullptr,
-                .onEvent = nullptr,
+                .onAttach = SG::LayerHandle<FirstLayer>::onAttachHandle,
+                .onDetach = SG::LayerHandle<FirstLayer>::onDetachHandle,
+                .onUpdate = SG::LayerHandle<FirstLayer>::onUpdateHandle,
+                .onEvent = SG::LayerHandle<FirstLayer>::onEventHandle,
                 .context = this
         };
     }
@@ -46,16 +46,16 @@ struct SecondLayer {
         std::cout << "Second layer onUpdate!\n";
     }
 
-    static void SecondLayer_onAttach(void* ctx) {
-        static_cast<SecondLayer*>(ctx)->onAttach();
+    void onEvent(SG::Event& event) {
+        std::cout << "Second layer onEvent!\n";
     }
-    
+
     SG::LayerInterface getHandle() {
         return SG::LayerInterface{
-                .onAttach = SecondLayer::SecondLayer_onAttach,
-                .onDetach = nullptr,
-                .onUpdate = nullptr,
-                .onEvent = nullptr,
+                .onAttach = SG::LayerHandle<SecondLayer>::onAttachHandle,
+                .onDetach = SG::LayerHandle<SecondLayer>::onDetachHandle,
+                .onUpdate = SG::LayerHandle<SecondLayer>::onUpdateHandle,
+                .onEvent = SG::LayerHandle<SecondLayer>::onEventHandle,
                 .context = this
         };
     }
