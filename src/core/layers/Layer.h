@@ -5,22 +5,12 @@
 #include "events/Event.h"
 
 namespace SG {
-    template <typename T>
-    struct Layer {
-        std::string name;
-
-        void onAttach() {
-            static_cast<T*>(this)->do_onAttach();
-        };
-        void onDetach() {
-            static_cast<T*>(this)->do_onDetach();
-        };
-        void onUpdate() {
-            static_cast<T*>(this)->do_onUpdate();
-        };
-        void onEvent(Event& event) {
-            static_cast<T*>(this)->do_onEvent(event);
-        };
+    struct LayerInterface {
+        void (*onAttach)(void*);
+        void (*onDetach)(void*);
+        void (*onUpdate)(void*);
+        void (*onEvent)(void*, Event& event);
+        void* context;
     };
 }
 

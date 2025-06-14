@@ -10,19 +10,19 @@ namespace SG {
         LayerStack() = default;
         ~LayerStack();
 
-        void pushLayer(Layer *layer);
-        void pushOverlay(Layer *overlay);
-        void popLayer(Layer *layer);
-        void popOverlay(Layer *overlay);
+        void pushLayer(void* layer);
+        void pushOverlay(void* overlay);
+        void popLayer(void* layer);
+        void popOverlay(void* overlay);
 
-        std::vector<Layer *>::iterator begin() { return m_Layers.begin(); }
-        std::vector<Layer *>::iterator end() { return m_Layers.end(); }
-        std::vector<Layer*>::reverse_iterator rbegin() { return m_Layers.rbegin(); }
-        std::vector<Layer*>::reverse_iterator rend() { return m_Layers.rend(); }
+        std::vector<LayerInterface*>::iterator begin() { return m_Layers.begin(); }
+        std::vector<LayerInterface*>::iterator end() { return m_Layers.end(); }
+        std::vector<LayerInterface*>::reverse_iterator rbegin() { return m_Layers.rbegin(); }
+        std::vector<LayerInterface*>::reverse_iterator rend() { return m_Layers.rend(); }
 
 
     private:
-        std::vector<Layer *> m_Layers;
+        std::vector<LayerInterface *> m_Layers;
         unsigned int m_LayerInsertIndex = 0;
     };
 }
