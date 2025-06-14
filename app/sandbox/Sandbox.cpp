@@ -17,6 +17,20 @@ struct FirstLayer {
     void onUpdate() {
         std::cout << "First layer onUpdate!\n";
     }
+
+    static void FirstLayer_onAttach(void* ctx) {
+        static_cast<FirstLayer*>(ctx)->onAttach();
+    }
+
+    SG::LayerInterface getHandle() {
+        return SG::LayerInterface{
+                .onAttach = FirstLayer::FirstLayer_onAttach,
+                .onDetach = nullptr,
+                .onUpdate = nullptr,
+                .onEvent = nullptr,
+                .context = this
+        };
+    }
 };
 
 struct SecondLayer {
@@ -31,15 +45,21 @@ struct SecondLayer {
     void onUpdate() {
         std::cout << "Second layer onUpdate!\n";
     }
+
+    static void SecondLayer_onAttach(void* ctx) {
+        static_cast<SecondLayer*>(ctx)->onAttach();
+    }
+    
+    SG::LayerInterface getHandle() {
+        return SG::LayerInterface{
+                .onAttach = SecondLayer::SecondLayer_onAttach,
+                .onDetach = nullptr,
+                .onUpdate = nullptr,
+                .onEvent = nullptr,
+                .context = this
+        };
+    }
 };
-
-void FirstLayer_onAttach(void* ctx) {
-    static_cast<FirstLayer*>(ctx)->onAttach();
-}
-
-void SecondLayer_onAttach(void* ctx) {
-    static_cast<SecondLayer*>(ctx)->onAttach();
-}
 
 class Sandbox : public SG::Application {
 public:
@@ -51,20 +71,8 @@ public:
         
         std::vector<SG::LayerInterface> layers;
         
-        layers.push_back(SG::LayerInterface{
-                .onAttach = FirstLayer_onAttach,
-                .onDetach = nullptr,
-                .onUpdate = nullptr,
-                .onEvent = nullptr,
-                .context = &firstLayer
-        });
-        layers.push_back(SG::LayerInterface{
-                .onAttach = SecondLayer_onAttach,
-                .onDetach = nullptr,
-                .onUpdate = nullptr,
-                .onEvent = nullptr,
-                .context = &secondLayer
-        });
+        layers.push_back(firstLayer.getHandle());
+        layers.push_back(secondLayer.getHandle());
         
         for (auto& layer : layers) {
             layer.onAttach(layer.context);
