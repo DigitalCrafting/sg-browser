@@ -1,4 +1,4 @@
-set(LIBRARY_SOURCES "core/Application.cpp")
+set(LIBRARY_SOURCES "core/Application.cpp" "core/layers/LayerStack.cpp")
 set(LIBRARY_HEADERS "core/Application.h" "entry-point/SGBrowser.h")
 set(LIBRARY_INCLUDES "./core" "./entry-point")
 

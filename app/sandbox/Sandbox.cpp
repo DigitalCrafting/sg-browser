@@ -2,7 +2,8 @@
 
 #include <iostream>
 #include <vector>
-#include "layers/Layer.h"
+#include "layers/LayerWrapper.h"
+#include "layers/LayerStack.h"
 
 
 struct FirstLayer {
@@ -20,16 +21,6 @@ struct FirstLayer {
     
     void onEvent(SG::Event& event) {
         std::cout << "First layer onEvent!\n";
-    }
-
-    SG::LayerInterface getHandle() {
-        return SG::LayerInterface{
-                .onAttach = SG::LayerHandle<FirstLayer>::onAttachHandle,
-                .onDetach = SG::LayerHandle<FirstLayer>::onDetachHandle,
-                .onUpdate = SG::LayerHandle<FirstLayer>::onUpdateHandle,
-                .onEvent = SG::LayerHandle<FirstLayer>::onEventHandle,
-                .context = this
-        };
     }
 };
 
@@ -49,16 +40,6 @@ struct SecondLayer {
     void onEvent(SG::Event& event) {
         std::cout << "Second layer onEvent!\n";
     }
-
-    SG::LayerInterface getHandle() {
-        return SG::LayerInterface{
-                .onAttach = SG::LayerHandle<SecondLayer>::onAttachHandle,
-                .onDetach = SG::LayerHandle<SecondLayer>::onDetachHandle,
-                .onUpdate = SG::LayerHandle<SecondLayer>::onUpdateHandle,
-                .onEvent = SG::LayerHandle<SecondLayer>::onEventHandle,
-                .context = this
-        };
-    }
 };
 
 class Sandbox : public SG::Application {
@@ -66,17 +47,13 @@ public:
     Sandbox() {
         std::cout << "Sandbox created!\n";
         
-        FirstLayer firstLayer;
-        SecondLayer secondLayer;
+        SG::LayerWrapper<FirstLayer> firstLayer;
+        SG::LayerWrapper<SecondLayer> secondLayer;
         
-        std::vector<SG::LayerInterface> layers;
+        SG::LayerStack layerStack;
         
-        layers.push_back(firstLayer.getHandle());
-        layers.push_back(secondLayer.getHandle());
-        
-        for (auto& layer : layers) {
-            layer.onAttach(layer.context);
-        }
+        layerStack.pushLayer(firstLayer.getHandle());
+        layerStack.pushLayer(secondLayer.getHandle());
     }
 };
 
