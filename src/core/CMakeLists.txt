@@ -8,6 +8,13 @@ add_library(${LIBRARY_NAME} STATIC
 )
 
 target_include_directories(${LIBRARY_NAME} PUBLIC ${LIBRARY_INCLUDES})
+target_link_libraries(${LIBRARY_NAME} PUBLIC
+        ${OPENGL_glu_LIBRARY}
+        ${GLFW_LIBRARIES}
+        ${OPENGL_gl_LIBRARY}
+        glfw
+        glad
+)
 
 if (ENABLE_WARNINGS)
     target_set_warnings(

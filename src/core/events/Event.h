@@ -26,11 +26,11 @@ namespace SG {
     
     enum EventCategory {
         None = 0,
-        Application = BIT(0),
-        Input = BIT(1),
-        Keyboard = BIT(2),
-        Mouse = BIT(3),
-        MouseButton = BIT(4)
+        EventCategoryApplication = BIT(0),
+        EventCategoryInput = BIT(1),
+        EventCategoryKeyboard = BIT(2),
+        EventCategoryMouse = BIT(3),
+        EventCategoryMouseButton = BIT(4)
     };
 
     struct Event {

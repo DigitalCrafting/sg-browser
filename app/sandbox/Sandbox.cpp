@@ -24,23 +24,6 @@ struct FirstLayer {
     }
 };
 
-struct SecondLayer {
-    void onAttach() {
-        std::cout << "Second layer onAttach!\n";
-    }
-    
-    void onDetach() {
-        std::cout << "Second layer onDetach!\n";
-    }
-    
-    void onUpdate() {
-        std::cout << "Second layer onUpdate!\n";
-    }
-
-    void onEvent(SG::Event& event) {
-        std::cout << "Second layer onEvent!\n";
-    }
-};
 
 class Sandbox : public SG::Application {
 public:
@@ -48,12 +31,10 @@ public:
         std::cout << "Sandbox created!\n";
         
         SG::LayerWrapper<FirstLayer> firstLayer;
-        SG::LayerWrapper<SecondLayer> secondLayer;
         
         SG::LayerStack layerStack;
         
         layerStack.pushLayer(firstLayer.getHandle());
-        layerStack.pushLayer(secondLayer.getHandle());
     }
 };
 
