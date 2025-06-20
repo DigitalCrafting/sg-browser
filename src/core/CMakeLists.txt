@@ -1,6 +1,6 @@
 set(LIBRARY_SOURCES "Application.cpp" "layers/LayerStack.cpp")
-set(LIBRARY_HEADERS "Application.h" "entry-point/SGBrowser.h")
-set(LIBRARY_INCLUDES "./" "entry-point")
+set(LIBRARY_HEADERS "Application.h")
+set(LIBRARY_INCLUDES "./")
 
 add_library(${LIBRARY_NAME} STATIC
         ${LIBRARY_SOURCES}

@@ -1,7 +1,6 @@
-#include "SGBrowser.h"
-
 #include <iostream>
 #include <vector>
+#include "Application.h"
 #include "layers/LayerWrapper.h"
 #include "layers/LayerStack.h"
 
@@ -38,6 +37,9 @@ public:
     }
 };
 
-SG::Application* SG::CreateApplication() {
-    return new Sandbox();
+int main(int argc, char** args) {
+    auto app = new Sandbox();
+    app->run();
+    delete app;
+    return 0;
 }
