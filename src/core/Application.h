@@ -1,8 +1,8 @@
 #ifndef SG_BROWSER_APPLICATION_H
 #define SG_BROWSER_APPLICATION_H
 
-#include "glad/gl.h"
-#include "GLFW/glfw3.h"
+#include "Core.h"
+#include "window/Window.h"
 
 namespace SG {
     class Application {
@@ -15,7 +15,7 @@ namespace SG {
         inline static Application* get() { return s_Instance; };
     private:
         static Application* s_Instance;
-        GLFWwindow* window;
+        std::unique_ptr<Window> m_Window;
     };
 
     // To be defined in client
