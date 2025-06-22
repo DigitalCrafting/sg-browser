@@ -39,6 +39,8 @@ namespace SG {
         inline unsigned int getHeight() const {
             return data.height;
         };
+        
+        inline GLFWwindow* getWindowHandle() { return window; }
 
         static std::unique_ptr<Window> create(const WindowProps& props = WindowProps());
     private:

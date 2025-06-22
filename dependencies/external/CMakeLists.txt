@@ -26,6 +26,14 @@ add_library(imgui STATIC
         ${IMGUI_HEADERS}
 )
 
+target_link_libraries(imgui PUBLIC
+        ${OPENGL_glu_LIBRARY}
+        ${GLFW_LIBRARIES}
+        ${OPENGL_gl_LIBRARY}
+        glfw
+        glad
+)
+
 target_include_directories(imgui PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/imgui
         ${CMAKE_CURRENT_SOURCE_DIR}/imgui/backends

@@ -1,5 +1,16 @@
-set(LIBRARY_SOURCES "Application.cpp" "layers/LayerStack.cpp" "window/Window.cpp")
-set(LIBRARY_HEADERS "Application.h" "window/Window.h")
+set(LIBRARY_SOURCES 
+        "Application.cpp" 
+        "layers/LayerStack.cpp" 
+        "window/Window.cpp"
+        "gui/ImGuiLayer.cpp"
+)
+set(LIBRARY_HEADERS 
+        "Application.h" 
+        "layers/LayerStack.h"
+        "window/Window.h"
+        "gui/ImGuiLayer.h"
+        "KeyCodes.h"
+)
 set(LIBRARY_INCLUDES "./")
 
 add_library(${LIBRARY_NAME} STATIC
@@ -14,6 +25,7 @@ target_link_libraries(${LIBRARY_NAME} PUBLIC
         ${OPENGL_gl_LIBRARY}
         glfw
         glad
+        imgui
 )
 
 if (ENABLE_WARNINGS)

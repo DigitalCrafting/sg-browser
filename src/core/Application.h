@@ -3,19 +3,21 @@
 
 #include "Core.h"
 #include "window/Window.h"
+#include "gui/ImGuiLayer.h"
 
 namespace SG {
     class Application {
     public:
         Application();
-        virtual ~Application();
 
         void run();
 
-        inline static Application* get() { return s_Instance; };
+        inline static Application& get() { return *s_Instance; };
+        inline Window& getWindow() const { return *m_Window; } 
     private:
         static Application* s_Instance;
         std::unique_ptr<Window> m_Window;
+        std::unique_ptr<ImGuiLayer> m_Gui;
     };
 
     // To be defined in client
