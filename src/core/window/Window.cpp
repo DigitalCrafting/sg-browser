@@ -1,10 +1,10 @@
 #include "Window.h"
 
-#include <iostream>
+#include "spdlog/spdlog.h"
 
 namespace SG {
     static void glfw_error_callback(int error, const char *description) {
-        std::cerr << "GLFW Error " << error << ": " << description << std::endl;
+        spdlog::error("GLFW Error {}: {}", error, description);
     }
     
     std::unique_ptr<Window> Window::create(const WindowProps &props) {
@@ -31,9 +31,7 @@ namespace SG {
         glfwSetErrorCallback(glfw_error_callback);
 
         if (!glfwInit()) {
-            std::cerr << "Failed to initialize GLFW" << std::endl;
-            // return -1;
-            // TODO THROW
+            spdlog::error("Failed to initialize GLFW");
         }
 
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -42,22 +40,18 @@ namespace SG {
 
         window = glfwCreateWindow((int) data.width, (int) data.height, data.title.c_str(), nullptr, nullptr);
         if (!window) {
-            std::cerr << "Failed to create GLFW window" << std::endl;
+            spdlog::error("Failed to create GLFW window");
             glfwTerminate();
-            // return -1;
-            // TODO THROW
         }
 
         glfwMakeContextCurrent(window);
         glfwSwapInterval(data.vSync);
 
         if (!gladLoadGL(glfwGetProcAddress)) {
-            std::cerr << "Failed to initialize GLAD" << std::endl;
-            // return -1;
-            // TODO THROW
+            spdlog::error("Failed to initialize GLAD");
         }
 
-        std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
+        spdlog::info("OpenGL Version: {}", (char*)glGetString(GL_VERSION));
     }
     
     void Window::shutdown() {

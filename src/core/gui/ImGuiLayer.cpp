@@ -2,7 +2,6 @@
 
 #include <imgui.h>
 #include "backends/imgui_impl_opengl3.h"
-#include "Application.h"
 #include "imgui_impl_glfw.h"
 
 namespace SG {
@@ -27,7 +26,6 @@ namespace SG {
         
         ImGui::Text("This is a minimal ImGui example."); // Text inside the window
 
-        // Render ImGui
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     }

@@ -1,25 +1,25 @@
-#include <iostream>
 #include <vector>
 #include "Application.h"
 #include "layers/LayerWrapper.h"
 #include "layers/LayerStack.h"
+#include "spdlog/spdlog.h"
 
 
 struct FirstLayer {
     void onAttach() {
-        std::cout << "First layer onAttach!\n";
+        spdlog::info("First layer onAttach!");
     }
     
     void onDetach() {
-        std::cout << "First layer onDetach!\n";
+        spdlog::info("First layer onDetach!");
     }
     
     void onUpdate() {
-        std::cout << "First layer onUpdate!\n";
+        spdlog::info("First layer onUpdate!");
     }
     
     void onEvent(SG::Event& event) {
-        std::cout << "First layer onEvent!\n";
+        spdlog::info("First layer onEvent!");
     }
 };
 
@@ -27,7 +27,7 @@ struct FirstLayer {
 class Sandbox : public SG::Application {
 public:
     Sandbox() {
-        std::cout << "Sandbox created!\n";
+        spdlog::info("Sandbox created!");
         
         SG::LayerWrapper<FirstLayer> firstLayer;
         

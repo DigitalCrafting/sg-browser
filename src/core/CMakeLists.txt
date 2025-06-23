@@ -26,6 +26,7 @@ target_link_libraries(${LIBRARY_NAME} PUBLIC
         glfw
         glad
         imgui
+        spdlog::spdlog
 )
 
 if (ENABLE_WARNINGS)
