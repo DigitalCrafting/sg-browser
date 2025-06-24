@@ -3,6 +3,7 @@
 #include <imgui.h>
 #include "backends/imgui_impl_opengl3.h"
 #include "imgui_impl_glfw.h"
+#include "Application.h"
 
 namespace SG {
     ImGuiLayer::ImGuiLayer() {
@@ -24,8 +25,19 @@ namespace SG {
         ImGui_ImplOpenGL3_NewFrame();
         ImGui::NewFrame();
         
-        ImGui::Text("This is a minimal ImGui example."); // Text inside the window
-
+        float top_bar_height = 40.0f;
+        auto top_bar_size = ImVec2(Application::get().getWindow().getWidth(), top_bar_height); 
+        auto top_bar_pos = ImVec2(0.0f, 0.0f);
+        
+        ImGui::SetNextWindowSize(top_bar_size);
+        ImGui::SetNextWindowPos(top_bar_pos);
+        
+        ImGui::Begin("TopBar", nullptr, top_bar_flags);
+        
+        ImGui::Text("Search");
+        
+        ImGui::End(); // TopBar
+        
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     }

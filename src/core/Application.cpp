@@ -4,6 +4,7 @@ namespace SG {
     Application* Application::s_Instance = nullptr;
 
     Application::Application() {
+        s_Instance = this;
         m_Window = Window::create();
         m_Gui = ImGuiLayer::create();
     }
