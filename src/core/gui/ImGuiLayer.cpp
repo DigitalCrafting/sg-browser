@@ -34,8 +34,11 @@ namespace SG {
         
         ImGui::Begin("TopBar", nullptr, top_bar_flags);
         
-        ImGui::Text("Search");
-        
+        static char searchBuffer[128] = "";
+        ImGui::Text("Search:");
+        ImGui::SameLine();
+        ImGui::SetNextItemWidth(200);
+        ImGui::InputTextWithHint("##search", "Search...", searchBuffer, IM_ARRAYSIZE(searchBuffer));
         ImGui::End(); // TopBar
         
         ImGui::Render();
