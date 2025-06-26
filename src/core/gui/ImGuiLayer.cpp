@@ -4,6 +4,8 @@
 #include "backends/imgui_impl_opengl3.h"
 #include "imgui_impl_glfw.h"
 #include "Application.h"
+#include "spdlog/spdlog.h"
+#include <iostream>
 
 namespace SG {
     ImGuiLayer::ImGuiLayer() {
@@ -38,7 +40,10 @@ namespace SG {
         ImGui::Text("Search:");
         ImGui::SameLine();
         ImGui::SetNextItemWidth(200);
-        ImGui::InputTextWithHint("##search", "Search...", searchBuffer, IM_ARRAYSIZE(searchBuffer));
+        if (ImGui::InputTextWithHint("##search", "http://...", searchBuffer, IM_ARRAYSIZE(searchBuffer), ImGuiInputTextFlags_EnterReturnsTrue)) {
+            spdlog::info("Searched: {}", searchBuffer);
+        }
+        
         ImGui::End(); // TopBar
         
         ImGui::Render();
