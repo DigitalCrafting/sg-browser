@@ -1,12 +1,10 @@
 set(LIBRARY_SOURCES 
         "Application.cpp" 
-        "layers/LayerStack.cpp" 
         "window/Window.cpp"
         "gui/ImGuiLayer.cpp"
 )
 set(LIBRARY_HEADERS 
         "Application.h" 
-        "layers/LayerStack.h"
         "window/Window.h"
         "gui/ImGuiLayer.h"
         "KeyCodes.h"
@@ -17,6 +15,9 @@ add_library(${LIBRARY_NAME} STATIC
         ${LIBRARY_SOURCES}
         ${LIBRARY_HEADERS}
 )
+
+add_subdirectory(events)
+add_subdirectory(layers)
 
 target_include_directories(${LIBRARY_NAME} PUBLIC ${LIBRARY_INCLUDES})
 target_link_libraries(${LIBRARY_NAME} PUBLIC

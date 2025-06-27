@@ -34,8 +34,11 @@ namespace SG {
     };
 
     struct Event {
+        bool handled = false;
         std::string name;
         EventType type;
+        
+        Event(EventType _type): type(_type) {}
     };
 }
 

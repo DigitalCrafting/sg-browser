@@ -5,7 +5,6 @@
 #include "imgui_impl_glfw.h"
 #include "Application.h"
 #include "spdlog/spdlog.h"
-#include <iostream>
 
 namespace SG {
     ImGuiLayer::ImGuiLayer() {
