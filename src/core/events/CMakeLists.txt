@@ -1,6 +1,7 @@
 target_sources(${LIBRARY_NAME} 
-    PRIVATE
+    INTERFACE
     Event.h
+    EventDispatcher.h
+    EventDispatcher.cpp
     MouseEvent.h
-    MouseEvent.cpp
 )

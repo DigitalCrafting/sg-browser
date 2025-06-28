@@ -4,8 +4,16 @@
 #include "Event.h"
 
 namespace SG {
-    class MouseEvent : public Event {
-        static EventType getStaticType(); 
+    class MouseMoveEvent : public Event {
+        static EventType getStaticType() {
+            return EventType::MouseMove;
+        }
+    };
+    
+    class MouseScrollEvent : public Event {
+        static EventType getStaticType() {
+            return EventType::MouseScroll;
+        }
     };
 }
 

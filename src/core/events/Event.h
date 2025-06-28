@@ -11,17 +11,17 @@ namespace SG {
         WindowResize,
         WindowFocus,
         WindowLostFocus,
-        WindowMoved,
+        WindowMove,
         AppTick,
         AppUpdate,
         AppRender,
-        KeyPressed,
-        KeyReleased,
-        KeyTyped,
-        MouseButtonPressed,
-        MouseButtonReleased,
-        MouseMoved,
-        MouseScrolled
+        KeyPress,
+        KeyRelease,
+        KeyType,
+        MouseButtonPress,
+        MouseButtonReleas,
+        MouseMove,
+        MouseScroll
     };
     
     enum EventCategory {
@@ -40,6 +40,10 @@ namespace SG {
         
         Event(EventType _type): type(_type) {}
     };
+    
+    inline std::ostream &operator<<(std::ostream &os, const Event &e) {
+        return os << e.name;
+    }
 }
 
 #endif //SG_BROWSER_EVENT_H
