@@ -4,6 +4,8 @@
 #include "events/Event.h"
 #include "imgui.h"
 
+#include <functional>
+
 namespace SG {
     class ImGuiLayer {
     public:
@@ -14,6 +16,7 @@ namespace SG {
         void onUpdate();
         void onDetach();
         void onEvent(Event& event);
+        void setCallback(std::function<void(SG::Event&)> _callback);
 
         static std::unique_ptr<ImGuiLayer> create();
     private:
@@ -25,6 +28,7 @@ namespace SG {
                 ImGuiWindowFlags_NoTitleBar | 
                 ImGuiWindowFlags_NoSavedSettings;
 
+        std::function<void(SG::Event&)> callback;
     };
 }
 

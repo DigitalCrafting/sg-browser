@@ -7,6 +7,7 @@
 namespace SG {
     enum class EventType {
         None = 0,
+        // Window Events
         WindowClose,
         WindowResize,
         WindowFocus,
@@ -15,13 +16,18 @@ namespace SG {
         AppTick,
         AppUpdate,
         AppRender,
+        
+        // Generic Actions
         KeyPress,
         KeyRelease,
         KeyType,
         MouseButtonPress,
-        MouseButtonReleas,
+        MouseButtonRelease,
         MouseMove,
-        MouseScroll
+        MouseScroll,
+        
+        // Browser Actions TODO -> move to separate structure, Actions
+        UrlSearch,
     };
     
     enum EventCategory {
@@ -30,7 +36,8 @@ namespace SG {
         EventCategoryInput = BIT(1),
         EventCategoryKeyboard = BIT(2),
         EventCategoryMouse = BIT(3),
-        EventCategoryMouseButton = BIT(4)
+        EventCategoryMouseButton = BIT(4),
+        EventCategoryBrowser = BIT(5),
     };
 
     struct Event {

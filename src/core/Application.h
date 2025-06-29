@@ -13,8 +13,9 @@ namespace SG {
         void run();
 
         inline static Application& get() { return *s_Instance; };
-        inline Window& getWindow() const { return *m_Window; } 
-    private:
+        inline Window& getWindow() const { return *m_Window; }
+
+    protected:
         static Application* s_Instance;
         std::unique_ptr<Window> m_Window;
         std::unique_ptr<ImGuiLayer> m_Gui;

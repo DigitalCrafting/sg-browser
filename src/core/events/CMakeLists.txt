@@ -4,4 +4,5 @@ target_sources(${LIBRARY_NAME}
     EventDispatcher.h
     EventDispatcher.cpp
     MouseEvent.h
+    BrowserEvents.h
 )
