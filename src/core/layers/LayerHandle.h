@@ -2,7 +2,7 @@
 #define SG_BROWSER_LAYERS_H
 
 #include <string>
-#include "events/Event.h"
+#include "events/Events.h"
 
 namespace SG {
     struct LayerHandle {

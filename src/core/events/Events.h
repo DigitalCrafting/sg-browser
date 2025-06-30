@@ -47,6 +47,23 @@ namespace SG {
         
         Event(EventType _type): type(_type) {}
     };
+
+    class EventDispatcher {
+    public:
+        explicit EventDispatcher(Event& _event): event(_event) {}
+
+        template<typename T, typename F>
+        bool dispatch(const F& func) {
+            if (event.type == T::getStaticType()) {
+                event.handled = func(static_cast<T&>(event));
+                return true;
+            }
+            return false;
+        }
+
+    private:
+        Event& event;
+    };
     
     inline std::ostream &operator<<(std::ostream &os, const Event &e) {
         return os << e.name;

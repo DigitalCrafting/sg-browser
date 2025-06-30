@@ -1,7 +1,7 @@
 #ifndef SG_BROWSER_IMGUILAYER_H
 #define SG_BROWSER_IMGUILAYER_H
 
-#include "events/Event.h"
+#include "events/Events.h"
 #include "imgui.h"
 
 #include <functional>

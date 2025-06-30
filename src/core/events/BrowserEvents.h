@@ -1,7 +1,7 @@
 #ifndef SG_BROWSER_BROWSER_EVENTS_H
 #define SG_BROWSER_BROWSER_EVENTS_H
 
-#include "Event.h"
+#include "Events.h"
 #include <string_view>
 
 namespace SG {

@@ -1,8 +1,6 @@
 target_sources(${LIBRARY_NAME} 
     INTERFACE
-    Event.h
-    EventDispatcher.h
-    EventDispatcher.cpp
+    Events.h
     MouseEvent.h
     BrowserEvents.h
 )

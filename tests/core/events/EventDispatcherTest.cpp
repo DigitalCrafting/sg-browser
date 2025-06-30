@@ -2,8 +2,7 @@
 
 #include <iostream>
 #include <vector>
-#include "events/Event.h"
-#include "events/EventDispatcher.h"
+#include "events/Events.h"
 #include "events/MouseEvent.h"
 
 TEST_CASE("should dispatch event") {

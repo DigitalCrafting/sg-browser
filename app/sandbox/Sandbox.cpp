@@ -2,8 +2,6 @@
 #include "Application.h"
 #include "layers/LayerWrapper.h"
 #include "layers/LayerStack.h"
-#include "events/EventDispatcher.h"
-#include "events/Event.h"
 #include "events/BrowserEvents.h"
 #include "spdlog/spdlog.h"
 
