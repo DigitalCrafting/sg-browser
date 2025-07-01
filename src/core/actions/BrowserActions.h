@@ -1,19 +1,19 @@
 #ifndef SG_BROWSER_BROWSER_EVENTS_H
 #define SG_BROWSER_BROWSER_EVENTS_H
 
-#include "Events.h"
+#include "Actions.h"
 #include <string_view>
 
 namespace SG {
-    class SearchUrlEvent : public Event {
+    class SearchUrlAction : public Action {
     public:
-        SearchUrlEvent(char* _url): url(_url), Event(EventType::UrlSearch) {}
+        explicit SearchUrlAction(char* _url): Action(ActionType::UrlSearch), url(_url) {}
 
-        const char* getName() {
-            return ENUM_NAME(EventType::UrlSearch);
+        static const char* getName() {
+            return ENUM_NAME(ActionType::UrlSearch);
         }
 
-        EventType getEventType() {
+        ActionType getActionType() {
             return getStaticType();
         }
         
@@ -21,8 +21,8 @@ namespace SG {
             return url;
         }
 
-        static EventType getStaticType() {
-            return EventType::UrlSearch;
+        static ActionType getStaticType() {
+            return ActionType::UrlSearch;
         }
         
     private:

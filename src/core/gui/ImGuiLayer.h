@@ -3,8 +3,11 @@
 
 #include "events/Events.h"
 #include "imgui.h"
+#include "actions/Actions.h"
+#include "actions/BrowserActions.h"
 
 #include <functional>
+#include <optional>
 
 namespace SG {
     class ImGuiLayer {
@@ -16,7 +19,7 @@ namespace SG {
         void onUpdate();
         void onDetach();
         void onEvent(Event& event);
-        void setCallback(std::function<void(SG::Event&)> _callback);
+        void setSearchCallback(SG::ActionHandler<SG::SearchUrlAction>* _handler);
 
         static std::unique_ptr<ImGuiLayer> create();
     private:
@@ -28,7 +31,14 @@ namespace SG {
                 ImGuiWindowFlags_NoTitleBar | 
                 ImGuiWindowFlags_NoSavedSettings;
 
-        std::function<void(SG::Event&)> callback;
+        SG::ActionHandler<SG::SearchUrlAction>* searchHandler = nullptr;
+        
+    private:
+        void triggerSearch(SG::SearchUrlAction& event) {
+            if (searchHandler) {
+                searchHandler->handleAction(event);
+            }
+        }
     };
 }
 

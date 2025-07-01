@@ -17,6 +17,7 @@ add_library(${LIBRARY_NAME} STATIC
 )
 
 add_subdirectory(events)
+add_subdirectory(actions)
 add_subdirectory(layers)
 
 target_include_directories(${LIBRARY_NAME} PUBLIC ${LIBRARY_INCLUDES})

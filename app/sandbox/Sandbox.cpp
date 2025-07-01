@@ -2,7 +2,8 @@
 #include "Application.h"
 #include "layers/LayerWrapper.h"
 #include "layers/LayerStack.h"
-#include "events/BrowserEvents.h"
+#include "src/core/actions/BrowserActions.h"
+#include "actions/Actions.h"
 #include "spdlog/spdlog.h"
 
 
@@ -35,20 +36,18 @@ public:
         SG::LayerStack layerStack;
 
         layerStack.pushLayer(firstLayer.getHandle());
-        m_Gui.get()->setCallback(std::bind(&Sandbox::handleEvent, this, std::placeholders::_1));
+
+        m_Gui.get()->setSearchCallback(&handler);
     }
 
 private:
-    void handleEvent(SG::Event &event) {
-        SG::EventDispatcher dispatcher(event);
-
-        dispatcher.dispatch<SG::SearchUrlEvent>(std::bind(&Sandbox::handleUrlSearchEvent, this, std::placeholders::_1));
-    }
-    
-    bool handleUrlSearchEvent(SG::SearchUrlEvent &event) {
+    void handleUrlSearchEvent(SG::SearchUrlAction &event) {
         spdlog::info("Searched: {}", event.getUrl());
-        return true;
     }
+
+    SG::ActionHandler<SG::SearchUrlAction> handler{
+        [this](SG::SearchUrlAction &e) { handleUrlSearchEvent(e); }
+    };
 };
 
 int main(int argc, char **args) {

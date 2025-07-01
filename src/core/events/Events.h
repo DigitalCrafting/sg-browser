@@ -25,9 +25,6 @@ namespace SG {
         MouseButtonRelease,
         MouseMove,
         MouseScroll,
-        
-        // Browser Actions TODO -> move to separate structure, Actions
-        UrlSearch,
     };
     
     enum EventCategory {

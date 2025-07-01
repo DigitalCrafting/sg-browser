@@ -4,7 +4,8 @@
 #include "backends/imgui_impl_opengl3.h"
 #include "imgui_impl_glfw.h"
 #include "Application.h"
-#include "events/BrowserEvents.h"
+#include "actions/BrowserActions.h"
+#include "actions/Actions.h"
 #include "spdlog/spdlog.h"
 
 namespace SG {
@@ -41,8 +42,8 @@ namespace SG {
         ImGui::SameLine();
         ImGui::SetNextItemWidth(200);
         if (ImGui::InputTextWithHint("##search", "http://...", searchBuffer, IM_ARRAYSIZE(searchBuffer), ImGuiInputTextFlags_EnterReturnsTrue)) {
-            SearchUrlEvent event{searchBuffer};
-            callback(event);
+            SearchUrlAction event{searchBuffer};
+            triggerSearch(event);
         }
         
         ImGui::End(); // TopBar
@@ -59,8 +60,8 @@ namespace SG {
     
     void ImGuiLayer::onEvent(SG::Event &event) {}
     
-    void ImGuiLayer::setCallback(std::function<void(SG::Event &)> _callback) {
-        this->callback = _callback;
+    void ImGuiLayer::setSearchCallback(SG::ActionHandler<SG::SearchUrlAction>* _handler) {
+        searchHandler = _handler;
     }
 
     std::unique_ptr<ImGuiLayer> ImGuiLayer::create() {
