@@ -2,8 +2,6 @@
 #include "Application.h"
 #include "layers/LayerWrapper.h"
 #include "layers/LayerStack.h"
-#include "src/core/actions/BrowserActions.h"
-#include "actions/Actions.h"
 #include "spdlog/spdlog.h"
 
 

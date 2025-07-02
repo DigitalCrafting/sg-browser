@@ -2,12 +2,13 @@
 #define SG_BROWSER_BROWSER_EVENTS_H
 
 #include "Actions.h"
+#include "Core.h"
 #include <string_view>
 
 namespace SG {
     class SearchUrlAction : public Action {
     public:
-        explicit SearchUrlAction(char* _url): Action(ActionType::UrlSearch), url(_url) {}
+        explicit SearchUrlAction(const char* _url): Action(ActionType::UrlSearch), url(_url) {}
 
         static const char* getName() {
             return ENUM_NAME(ActionType::UrlSearch);

@@ -4,6 +4,7 @@ set(TEST_MAIN "unit_tests")
 set(TEST_SOURCES 
         "core/layers/LayersTest.cpp"
         "core/events/EventDispatcherTest.cpp"
+        "core/actions/ActionHandlerTest.cpp"
         "html-parser/EventHorizonTest.cpp"
         "js-parser/NaquadahTest.cpp"
 )
