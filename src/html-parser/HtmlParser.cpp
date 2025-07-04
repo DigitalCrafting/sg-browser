@@ -1,6 +1,6 @@
-#include "EventHorizon.h"
+#include "HtmlParser.h"
 
-namespace EventHorizon {
+namespace HtmlParser {
     void parse(std::string code) {
         std::cout << code << "\n";
     }

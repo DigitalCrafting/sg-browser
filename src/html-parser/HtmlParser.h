@@ -4,7 +4,7 @@
 #include <string.h>
 #include <iostream>
 
-namespace EventHorizon {
+namespace HtmlParser {
     void parse(std::string code);
 }
 

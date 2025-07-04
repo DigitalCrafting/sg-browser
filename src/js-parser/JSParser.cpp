@@ -1,6 +1,6 @@
-#include "Naquadah.h"
+#include "JSParser.h"
 
-namespace Naquadah {
+namespace JSParser {
     void parse(std::string code) {
         std::cout << code << "\n";
     }

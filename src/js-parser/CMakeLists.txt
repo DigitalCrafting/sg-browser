@@ -1,5 +1,5 @@
-set(LIBRARY_SOURCES "Naquadah.cpp")
-set(LIBRARY_HEADERS "Naquadah.h")
+set(LIBRARY_SOURCES "JSParser.cpp")
+set(LIBRARY_HEADERS "JSParser.h")
 set(LIBRARY_INCLUDES "./")
 
 add_library(${JS_PARSER_LIB_NAME} STATIC

@@ -4,7 +4,7 @@
 #include <string.h>
 #include <iostream>
 
-namespace Naquadah {
+namespace JSParser {
     void parse(std::string code);
 }
 
