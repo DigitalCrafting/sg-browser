@@ -5,8 +5,8 @@ set(TEST_SOURCES
         "core/layers/LayersTest.cpp"
         "core/events/EventDispatcherTest.cpp"
         "core/actions/ActionHandlerTest.cpp"
-        "html-parser/EventHorizonTest.cpp"
-        "js-parser/NaquadahTest.cpp"
+        "html-parser/HtmlParserTest.cpp"
+        "js-parser/JSParserTest.cpp"
 )
 set(TEST_INCLUDES "./")
 
