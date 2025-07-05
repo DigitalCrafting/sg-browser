@@ -1,11 +1,12 @@
-#ifndef SG_BROWSER_EVENT_HORIZON_H
-#define SG_BROWSER_EVENT_HORIZON_H
+#ifndef SG_BROWSER_HTML_PARSER_H
+#define SG_BROWSER_HTML_PARSER_H
 
 #include <string.h>
 #include <iostream>
 
-namespace HtmlParser {
+namespace SG::Html {
     void parse(std::string code);
 }
 
-#endif //SG_BROWSER_EVENT_HORIZON_H
+
+#endif //SG_BROWSER_HTML_PARSER_H

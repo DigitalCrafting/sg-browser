@@ -1,5 +1,5 @@
 set(LIBRARY_SOURCES "HtmlParser.cpp")
-set(LIBRARY_HEADERS "HtmlParser.h")
+set(LIBRARY_HEADERS "HtmlParser.h" "Html.h")
 set(LIBRARY_INCLUDES "./")
 
 add_library(${HTML_PARSER_LIB_NAME} STATIC

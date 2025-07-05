@@ -1,6 +1,6 @@
 #include "HtmlParser.h"
 
-namespace HtmlParser {
+namespace Html {
     void parse(std::string code) {
         std::cout << code << "\n";
     }

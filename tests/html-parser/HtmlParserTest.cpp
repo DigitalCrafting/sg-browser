@@ -3,15 +3,15 @@
 #include <iostream>
 #include "HtmlParser.h"
 
-TEST_CASE("should call parse from HtmlParser")
+TEST_CASE("should call parse from Html")
 {
-    std::string code = "Hello HtmlParser!";
+    std::string code = "Hello Html!";
     
     auto stdoutBuffer = std::cout.rdbuf();
     std::ostringstream oss;
     std::cout.rdbuf(oss.rdbuf());
 
-    HtmlParser::parse(code);
+    Html::parse(code);
 
     std::cout.rdbuf(stdoutBuffer);
     REQUIRE(oss.str() == (code + "\n"));
