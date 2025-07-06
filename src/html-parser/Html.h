@@ -56,10 +56,18 @@ namespace SG::Html {
     
     class Tag {
     public:
-        Tag(TagType _type): type(_type) {}
+        explicit Tag(TagType _type): type(_type) {}
         
     private:
         TagType type;
+    };
+    
+    class Attribute {
+    public:
+        explicit Attribute(AttributeType _type): type(_type) {}
+        
+    private:
+        AttributeType type;
     };
 }
 
