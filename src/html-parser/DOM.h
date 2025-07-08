@@ -2,6 +2,8 @@
 #define SG_BROWSER_DOM_H
 
 #include "Html.h"
+#include <vector>
+#include <memory>
 
 namespace SG {
     struct DOMNode {
@@ -11,7 +13,8 @@ namespace SG {
         
     private:
         Html::TagType type;
-        void* tagPtr;
+        std::vector<void*> tagPtrs;
+        std::vector<std::unique_ptr<DOMNode>> children;
     };
     
     struct DOMTree {
