@@ -54,12 +54,23 @@ namespace SG::Html {
         
     };
     
-    class Tag {
+    class TypedTag {
     public:
-        explicit Tag(TagType _type): type(_type) {}
+        explicit TypedTag(TagType _type): type(_type) {}
+        
+        [[nodiscard]] 
+        TagType getType() const {
+            return type;
+        }
+        
+        [[nodiscard]] 
+        void* getPtr() const {
+            return ptr;
+        }
         
     private:
         TagType type;
+        void* ptr;
     };
     
     class Attribute {
