@@ -4,7 +4,7 @@
 #include <string.h>
 #include <iostream>
 
-namespace JSParser {
+namespace GS {
     void parse(std::string code);
 }
 

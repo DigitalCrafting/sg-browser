@@ -1,7 +1,7 @@
 #include "catch2/catch_test_macros.hpp"
 
 #include <iostream>
-#include "HtmlParser.h"
+#include "parser/HtmlParser.h"
 
 TEST_CASE("should call parse from Html")
 {

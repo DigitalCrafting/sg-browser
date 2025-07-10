@@ -1,6 +1,6 @@
-#include "JSParser.h"
+#include "GSParser.h"
 
-namespace JSParser {
+namespace GS {
     void parse(std::string code) {
         std::cout << code << "\n";
     }

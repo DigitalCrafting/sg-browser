@@ -17,8 +17,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS        OFF)
 
 set(LIBRARY_NAME SGBrowserLib)
-set(JS_PARSER_LIB_NAME Naquadah)
-set(HTML_PARSER_LIB_NAME EventHorizon)
+set(SCRIPT_LIB_NAME Naquadah)
+set(HTML_LIB_NAME EventHorizon)
 
 add_subdirectory(config)
 

@@ -1,7 +1,7 @@
 #ifndef SG_BROWSER_HTML_FORMATTER_H
 #define SG_BROWSER_HTML_FORMATTER_H
 
-#include "Html.h"
+#include "src/html/types/Html.h"
 
 #include <fmt/format.h>
 

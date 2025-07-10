@@ -54,31 +54,43 @@ namespace SG::Html {
         
     };
     
-    class TypedTag {
-    public:
+    struct TypedTag {
         explicit TypedTag(TagType _type): type(_type) {}
         
-        [[nodiscard]] 
-        TagType getType() const {
-            return type;
-        }
-        
-        [[nodiscard]] 
-        void* getPtr() const {
-            return ptr;
-        }
-        
-    private:
         TagType type;
         void* ptr;
     };
     
-    class Attribute {
+    struct Attribute {
     public:
         explicit Attribute(AttributeType _type): type(_type) {}
         
-    private:
         AttributeType type;
+    };
+    
+    struct BoxModel {
+        int width;
+        int height;
+        int paddingTop;
+        int paddingRight;
+        int paddingBottom;
+        int paddingLeft;
+        int marginTop;
+        int marginRight;
+        int marginBottom;
+        int marginLeft;
+    };
+    
+    enum class BorderType {
+        None = 0,
+        Solid,
+        Dotted,
+        Dashed
+    };
+    
+    struct BorderModel {
+        BorderType type;
+        int width;
     };
 }
 

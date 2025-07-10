@@ -1,17 +1,17 @@
 #include "catch2/catch_test_macros.hpp"
 
 #include <iostream>
-#include "JSParser.h"
+#include "GSParser.h"
 
-TEST_CASE("should call parse from JSParser")
+TEST_CASE("should call parse from GS")
 {
-    std::string code = "Hello JSParser!";
+    std::string code = "Hello GS!";
 
     auto stdoutBuffer = std::cout.rdbuf();
     std::ostringstream oss;
     std::cout.rdbuf(oss.rdbuf());
 
-    JSParser::parse(code);
+    GS::parse(code);
 
     std::cout.rdbuf(stdoutBuffer);
     REQUIRE(oss.str() == (code + "\n"));

@@ -1,8 +1,8 @@
 #ifndef SG_BROWSER_TAG_CONTAINER_H
 #define SG_BROWSER_TAG_CONTAINER_H
 
-#include "Html.h"
-#include "HtmlTags.h"
+#include "src/html/types/Html.h"
+#include "src/html/types/HtmlTags.h"
 #include "HtmlFormatter.h"
 
 #include "spdlog/spdlog.h"

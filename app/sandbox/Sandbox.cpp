@@ -19,7 +19,7 @@ struct FirstLayer {
     }
 
     void onEvent(SG::Event &event) {
-        spdlog::info("First layer onEvent!");
+        spdlog::info("First layer onEvent {}!", event.name);
     }
 };
 
@@ -48,7 +48,7 @@ private:
     };
 };
 
-int main(int argc, char **args) {
+int main() {
     auto app = new Sandbox();
     app->run();
     delete app;

@@ -5,8 +5,8 @@ add_executable(Sandbox ${EXE_SOURCES})
 target_include_directories(Sandbox PUBLIC ${EXE_INCLUDES})
 target_link_libraries(Sandbox PRIVATE
         ${LIBRARY_NAME}
-        ${JS_PARSER_LIB_NAME}
-        ${HTML_PARSER_LIB_NAME}
+        ${SCRIPT_LIB_NAME}
+        ${HTML_LIB_NAME}
         imgui
 )
 

@@ -1,7 +1,7 @@
 #ifndef SG_BROWSER_DOM_H
 #define SG_BROWSER_DOM_H
 
-#include "Html.h"
+#include "src/html/types/Html.h"
 #include <vector>
 #include <memory>
 
