@@ -15,7 +15,7 @@ namespace SG {
         ImGuiLayer();
         ~ImGuiLayer();
         
-        void onAttach(GLFWwindow* wwindow);
+        void onAttach(GLFWwindow* window);
         void onUpdate();
         void onDetach();
         void onEvent(Event& event);

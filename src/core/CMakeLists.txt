@@ -2,12 +2,14 @@ set(LIBRARY_SOURCES
         "Application.cpp" 
         "window/Window.cpp"
         "gui/ImGuiLayer.cpp"
+        "renderer/HtmlRendererLayer.cpp"
 )
 set(LIBRARY_HEADERS 
         "Application.h" 
         "window/Window.h"
         "gui/ImGuiLayer.h"
         "KeyCodes.h"
+        "renderer/HtmlRendererLayer.h"
 )
 set(LIBRARY_INCLUDES "./")
 
