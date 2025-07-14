@@ -4,8 +4,6 @@
 #include "backends/imgui_impl_opengl3.h"
 #include "imgui_impl_glfw.h"
 #include "Application.h"
-#include "actions/BrowserActions.h"
-#include "actions/Actions.h"
 #include "spdlog/spdlog.h"
 
 namespace SG {
@@ -58,7 +56,9 @@ namespace SG {
         ImGui::DestroyContext();
     }
     
-    void ImGuiLayer::onEvent(SG::Event &event) {}
+    void ImGuiLayer::onEvent(SG::Event &event) {
+        spdlog::info("ImGuiLayer::onEvent {}", event.name);
+    }
     
     void ImGuiLayer::setSearchCallback(SG::ActionHandler<SG::SearchUrlAction>* _handler) {
         searchHandler = _handler;

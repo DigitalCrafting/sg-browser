@@ -4,6 +4,7 @@
 #include "Core.h"
 #include "window/Window.h"
 #include "gui/ImGuiLayer.h"
+#include "renderer/HtmlRendererLayer.h"
 
 namespace SG {
     class Application {
@@ -19,6 +20,7 @@ namespace SG {
         static Application* s_Instance;
         std::unique_ptr<Window> m_Window;
         std::unique_ptr<ImGuiLayer> m_Gui;
+        std::unique_ptr<HtmlRendererLayer> m_HtmlRenderer;
     };
 
     // To be defined in client

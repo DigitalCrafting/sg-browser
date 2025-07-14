@@ -11,7 +11,7 @@ namespace SG {
         HtmlRendererLayer();
         ~HtmlRendererLayer();
 
-        void onAttach(GLFWwindow* window);
+        void onAttach([[maybe_unused]] GLFWwindow* window);
         void onUpdate();
         void onDetach();
         void onEvent(Event& event);
