@@ -8,6 +8,7 @@ target_link_libraries(Sandbox PRIVATE
         ${SCRIPT_LIB_NAME}
         ${HTML_LIB_NAME}
         imgui
+        glm
 )
 
 if (ENABLE_WARNINGS)

@@ -19,6 +19,7 @@ set(CMAKE_CXX_EXTENSIONS        OFF)
 set(LIBRARY_NAME SGBrowserLib)
 set(SCRIPT_LIB_NAME Naquadah)
 set(HTML_LIB_NAME EventHorizon)
+set(OPENGL_RENDERER_LIB_NAME OpenGlLib)
 
 add_subdirectory(config)
 

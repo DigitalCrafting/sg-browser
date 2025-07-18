@@ -42,3 +42,5 @@
 **/docs/html
 
 **/imgui.ini
+
+**/env.h

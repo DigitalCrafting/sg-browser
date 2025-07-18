@@ -29,8 +29,10 @@ target_link_libraries(${LIBRARY_NAME} PUBLIC
         ${OPENGL_gl_LIBRARY}
         glfw
         glad
+        glm
         imgui
         spdlog::spdlog
+        ${OPENGL_RENDERER_LIB_NAME}
 )
 
 if (ENABLE_WARNINGS)
