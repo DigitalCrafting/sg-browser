@@ -3,6 +3,7 @@
 #include "layers/LayerWrapper.h"
 #include "layers/LayerStack.h"
 #include "spdlog/spdlog.h"
+#include "env.h"
 
 
 struct FirstLayer {
@@ -28,6 +29,7 @@ class Sandbox : public SG::Application {
 public:
     Sandbox() {
         spdlog::info("Sandbox created!");
+        spdlog::info("Resources path: {}", ResourcesPath);
 
         SG::LayerWrapper<FirstLayer> firstLayer;
 
