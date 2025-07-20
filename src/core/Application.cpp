@@ -11,6 +11,12 @@ namespace SG {
     }
 
     void Application::run() {
+        // TODO: Viewport for OpenGL
+        // TODO: ScreenSize manager
+        // TODO: ImGui Components manager to have:
+        // - top bar
+        // - devtools
+        
         m_Gui->onAttach(m_Window->getWindowHandle());
         m_HtmlRenderer->onAttach(m_Window->getWindowHandle());
         
