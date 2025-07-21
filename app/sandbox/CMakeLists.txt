@@ -1,5 +1,5 @@
 set(EXE_SOURCES "Sandbox.cpp")
-set(EXE_HEADERS "env.h")
+set(EXE_HEADERS "env.h" "gui/GuiLayoutManager.h")
 set(EXE_INCLUDES "../.." "${CMAKE_BINARY_DIR}/configured/include")
 
 add_executable(Sandbox ${EXE_SOURCES} ${EXE_HEADERS})

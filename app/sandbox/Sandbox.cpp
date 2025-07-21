@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "spdlog/spdlog.h"
 #include "env.h"
+#include "gui/GuiLayoutManager.h"
 
 class Sandbox : public SG::Application {
 public:
@@ -9,6 +10,9 @@ public:
         spdlog::info("Sandbox created!");
         spdlog::info("Resources path: {}", ResourcesPath);
         m_Gui.get()->setSearchCallback(&handler);
+        
+        auto layout = LayoutManager::getLayout(m_Window->getWidth(), m_Window->getHeight());
+        spdlog::info("Calculated render area dimensions: {} {}", layout.pageRenderArea.width, layout.pageRenderArea.height);
     }
 
 private:
